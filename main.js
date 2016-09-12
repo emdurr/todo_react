@@ -2,13 +2,13 @@ $(document).ready( () => {
 	let todos = ['one', 'two'];
 	const loadTodos = () => {
 		$('#todos').empty();
-		let counter = 1;
+		let counter = 0;
 		for (let name of todos) {
-			$('#todos').append(`<li class="item" data-todo-id="${counter}">${name}</li>`);
+			$('#todos').append(`<li class="item">${name} || <button data-todo-id="${counter}" class="deleteItem">Delete</button></li>`);
 			counter += 1;
 		}
 	}
-	
+
 	$('#add').on('submit', (e) => {
 		e.preventDefault();
 		let todo = $('#addTodo').val();
@@ -20,6 +20,14 @@ $(document).ready( () => {
 	$(document).on('click', '.item', (e) => {
 		$(e.target).toggleClass('completed');
 	});
+
+	$(document).on('click', '.deleteItem', (e) => {
+		let id = $(e.target).data('todo-id');
+		console.log(todos[id]);
+		todos.splice(id, 1);
+		loadTodos();
+	})
+
 	loadTodos();
 
 
