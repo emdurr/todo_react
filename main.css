@@ -2,3 +2,7 @@
 	color: grey;
 	text-decoration: line-through;	
 }
+
+.no-display {
+	display: none;
+}

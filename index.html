@@ -1,22 +1,43 @@
 <html>
   <head>
   	<link rel="stylesheet" type="text/css" href="main.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
     <! html for my todo list >
-    <h1>To Do:</h1>
-<!--     <button id="load_todos">Load To Dos</button> -->
-    <form id="add">
-    	<input type="text" name="add" id="addTodo" placeholder="To Do">
-    	<!-- <input type="submit"> -->
-    	<button >click</button>
-    </form>
-    
-    <ul id='todos'>
-    	
-    </ul>
+    <div class="container">
+    	<div class="row">
+    		<div class="col s12 center-align blue">
+    			<h1>To Do:</h1>
+    		</div>
+			    <button id="load_all_todos">Load All To Dos</button>
+			    <button id="load_incomplete_todos">Load To Dos Still To Do</button>
+			    <button id="load_completed_todos">Completed To Dos</button>
+			  <div class="col s12">
+			    <form id="add">
+			    	<input type="text" name="add" id="addTodo" placeholder="To Do">
+			    	<!-- <input type="submit"> -->
+			    	<button >Add</button>
+			    </form>
+			  </div>	
+
+			  <div class="col s12 no-display" id="edit_form">
+	    		<form id="edit">
+		    		<input type="text" name="edit" id="editTodo">
+		    		<input type="hidden" name="edit_id" id="editId">
+	  	  		<button id="submit_edit">Submit</button>
+	  	  	</form>
+	    	</div>
+			  
+			  <div class="row">  
+			    <ul id='todos'>
+			    	
+			    </ul>
+			  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script type="text/babel" src='main.js'></script>
   </body>
 </html>
