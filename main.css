@@ -6,3 +6,7 @@
 .no-display {
 	display: none;
 }
+
+.card {
+	cursor: pointer;
+}

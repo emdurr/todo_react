@@ -20,15 +20,35 @@ $(document).ready( () => {
 		}
 	}
 
-	var incomplete = todos.filter(function(e) {
-		return (e.completed === false);
+	$('#load_all_todos').on('click', (e) => {
+		loadAllTodos();
 	});
 
 	$('#load_incomplete_todos').on('click', (e) => {
-		debugger;
-		$('#todos').empty();
+		let incomplete = [];
+		for (let todo of todos) {
+			if (todo.completed === false) {
+				incomplete.push(todo);
+			}
+		}
 		for (let name of incomplete) {
-			$('#todos').append(`<li class="item">${name.name}</li>`);
+			$('#todos').empty();
+			$('#todos').append(`<div class="col s3 card">
+													<li class="card-title item">${name.name}</li>`);
+		}
+	});
+
+	$('#load_completed_todos').on('click', (e) => {
+		let completed = [];
+		for (let todo of todos) {
+			if (todo.completed === true) {
+				completed.push(todo);
+			}
+		}
+		for (let name of completed) {
+			$('#todos').empty();
+			$('#todos').append(`<div class="col s3 card">
+													<li class="card-title item">${name.name}</li>`);
 		}
 	});
 
@@ -52,7 +72,7 @@ $(document).ready( () => {
 		let id = $(e.target).data('todo-id');
 		let todo = todos[id];
 		todo.completed = false;
-		loadIncompleteTodos();
+		loadAllTodos();
 	});
 
 	$(document).on('click', '.deleteItem', (e) => {
