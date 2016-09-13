@@ -20,9 +20,17 @@ $(document).ready( () => {
 		}
 	}
 
-	const incomplete = () => {
-		
-	}
+	var incomplete = todos.filter(function(e) {
+		return (e.completed === false);
+	});
+
+	$('#load_incomplete_todos').on('click', (e) => {
+		debugger;
+		$('#todos').empty();
+		for (let name of incomplete) {
+			$('#todos').append(`<li class="item">${name.name}</li>`);
+		}
+	});
 
 	$('#add').on('submit', (e) => {
 		e.preventDefault();
